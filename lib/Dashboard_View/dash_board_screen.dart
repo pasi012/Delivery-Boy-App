@@ -1,5 +1,6 @@
 import 'package:delivery_boy_app/Dashboard_View/status_statistic_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'my_orders_screen.dart';
 
 class DashBoardScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: GestureDetector(
                   onTap: (){
                     Navigator.push(
@@ -47,38 +48,38 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text("Orders Statistics", style: TextStyle(fontSize: 18.0),),
+                      Text("Orders Statistics", style: TextStyle(fontSize: 6.sp),),
                       const SizedBox(height: 20,),
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('assets/icons/img_1.png', fit: BoxFit.fill, height: 50, width: 50,),
+                          Image.asset('assets/icons/img_1.png', fit: BoxFit.fill, height: 30.h, width: 20.w,),
+                          Text("3.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
+                          const SizedBox(width: 30,),
+                          Image.asset('assets/icons/img_2.png', fit: BoxFit.fill, height: 30.h, width: 20.w,),
                           const SizedBox(width: 10,),
-                          const Text("3.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),),
-                          const SizedBox(width: 40,),
-                          Image.asset('assets/icons/img_2.png', fit: BoxFit.fill, height: 50, width: 50,),
-                          const SizedBox(width: 10,),
-                          const Text("4.8k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.0),),
+                          Text("4.8k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
                         ],
                       ),
-                      const Row(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(width: 60,),
+                          const SizedBox(width: 60,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Orders", style: TextStyle(fontSize: 16.0),),
-                              Text("Count", style: TextStyle(fontSize: 16.0),),
+                              Text("Orders", style: TextStyle(fontSize: 5.sp),),
+                              Text("Count", style: TextStyle(fontSize: 5.sp),),
                             ],
                           ),
-                          SizedBox(width: 110,),
+                          const SizedBox(width: 100,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Total", style: TextStyle(fontSize: 16.0),),
-                              Text("Delivery", style: TextStyle(fontSize: 16.0),),
-                              Text("Charge", style: TextStyle(fontSize: 16.0),),
+                              Text("Total", style: TextStyle(fontSize: 5.sp),),
+                              Text("Delivery", style: TextStyle(fontSize: 5.sp),),
+                              Text("Charge", style: TextStyle(fontSize: 5.sp),),
                             ],
                           ),
                         ],
@@ -99,73 +100,77 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text("Finance Statistics", style: TextStyle(fontSize: 18.0),),
+                    Text("Finance Statistics", style: TextStyle(fontSize: 6.sp),),
                     const SizedBox(height: 20,),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Image.asset('assets/icons/img_3.png', fit: BoxFit.fill, height: 50, width: 50,),
+                        Image.asset('assets/icons/img_3.png', fit: BoxFit.fill, height: 30.h, width: 10.w,),
                         const SizedBox(width: 10,),
-                        const Text("234.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),),
-                        const SizedBox(width: 30,),
-                        Image.asset('assets/icons/img_4.png', fit: BoxFit.fill, height: 50, width: 50,),
+                        Text("234.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
+                        const SizedBox(width: 20,),
+                        Image.asset('assets/icons/img_4.png', fit: BoxFit.fill, height: 30.h, width: 10.w,),
                         const SizedBox(width: 10,),
-                        const Text("122.3k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),),
+                        Text("122.3k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
                       ],
                     ),
-                    const Row(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(width: 60,),
+                        const SizedBox(width: 60,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Orders", style: TextStyle(fontSize: 16.0),),
-                            Text("Count", style: TextStyle(fontSize: 16.0),),
+                            Text("Orders", style: TextStyle(fontSize: 5.sp),),
+                            Text("Count", style: TextStyle(fontSize: 5.sp),),
                           ],
                         ),
-                        SizedBox(width: 130,),
+                        const SizedBox(width: 90,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Total", style: TextStyle(fontSize: 16.0),),
-                            Text("Delivery", style: TextStyle(fontSize: 16.0),),
-                            Text("Charge", style: TextStyle(fontSize: 16.0),),
+                            Text("Total", style: TextStyle(fontSize: 5.sp),),
+                            Text("Delivery", style: TextStyle(fontSize: 5.sp),),
+                            Text("Charge", style: TextStyle(fontSize: 5.sp),),
                           ],
                         ),
                       ],
                     ),
                     const SizedBox(height: 10,),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Image.asset('assets/icons/img_5.png', fit: BoxFit.fill, height: 50, width: 50,),
+                        Image.asset('assets/icons/img_5.png', fit: BoxFit.fill, height: 30.h, width: 10.w,),
                         const SizedBox(width: 10,),
-                        const Text("678.7k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),),
-                        const SizedBox(width: 30,),
-                        Image.asset('assets/icons/img_6.png', fit: BoxFit.fill, height: 50, width: 50,),
+                        Text("678.7k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
+                        const SizedBox(width: 20,),
+                        Image.asset('assets/icons/img_6.png', fit: BoxFit.fill, height: 30.h, width: 10.w,),
                         const SizedBox(width: 10,),
-                        const Text("101.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),),
+                        Text("101.1k", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 8.sp),),
                       ],
                     ),
-                    const Row(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(width: 60,),
+                        const SizedBox(width: 60,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Orders", style: TextStyle(fontSize: 16.0),),
-                            Text("Count", style: TextStyle(fontSize: 16.0),),
+                            Text("Orders", style: TextStyle(fontSize: 5.sp),),
+                            Text("Count", style: TextStyle(fontSize: 5.sp),),
                           ],
                         ),
-                        SizedBox(width: 130,),
+                        const SizedBox(width: 90,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Total", style: TextStyle(fontSize: 16.0),),
-                            Text("Delivery", style: TextStyle(fontSize: 16.0),),
-                            Text("Charge", style: TextStyle(fontSize: 16.0),),
+                            Text("Total", style: TextStyle(fontSize: 5.sp),),
+                            Text("Delivery", style: TextStyle(fontSize: 5.sp),),
+                            Text("Charge", style: TextStyle(fontSize: 5.sp),),
                           ],
                         ),
                       ],
@@ -195,12 +200,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset('assets/icons/img_7.png', fit: BoxFit.fill, height: 50, width: 50,),
+                          Image.asset('assets/icons/img_7.png', fit: BoxFit.fill, height: 30.h, width: 20.w,),
                           const SizedBox(width: 20,),
-                          const Text("Status Statistics", style: TextStyle(fontSize: 18.0),),
+                          Text("Status Statistics", style: TextStyle(fontSize: 6.sp),),
                         ],
                       ),
-                      const Text("show details", style: TextStyle(color: Colors.blue, fontSize: 16.0),),
+                      Text("show details", style: TextStyle(color: Colors.blue, fontSize: 5.sp),),
                     ],
                   ),
                 ),

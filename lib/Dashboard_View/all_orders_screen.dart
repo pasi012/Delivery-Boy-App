@@ -22,46 +22,97 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              children: [
-                InkWell(
-                  child: const Icon(Icons.arrow_back_ios_new_rounded),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                const Text(
-                  "All Orders",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                Image.asset(
-                  "assets/icons/download.png",
-                  width: 28,
-                  height: 28,
-                  fit: BoxFit.fill,
-                ),
-                const SizedBox(
-                  width: 5,
-                )
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  InkWell(
+                    child: const Icon(Icons.arrow_back_ios_new_rounded),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "All Orders",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  const Spacer(),
+                  Image.asset(
+                    "assets/icons/download.png",
+                    width: 28,
+                    height: 28,
+                    fit: BoxFit.fill,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  )
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          GestureDetector(
-            onTap: () {
-              _showDetailsDialog(context);
-            },
-            child: Card(
+            const SizedBox(
+              height: 50,
+            ),
+            GestureDetector(
+              onTap: () {
+                _showDetailsDialog(context);
+              },
+              child: Card(
+                color: Colors.white,
+                elevation: 5,
+                margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "CFC0060300",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      const Spacer(),
+                      Container(
+                        width: 130,
+                        decoration: BoxDecoration(
+                            color: Colors.blue.shade100,
+                            borderRadius: BorderRadius.circular(100)),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 20,
+                        ),
+                        child: const Center(
+                            child: Text(
+                          "Confirmed",
+                          style: TextStyle(fontSize: 16),
+                        )),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            _showOrderMenuDialog(context);
+                          },
+                          child: Image.asset(
+                            'assets/icons/menu.png',
+                            width: 28,
+                            height: 28,
+                            fit: BoxFit.fill,
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Card(
               color: Colors.white,
               elevation: 5,
               margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
@@ -69,8 +120,95 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                   borderRadius: BorderRadius.circular(8.0)),
               child: Container(
                 width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CFC0060300",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          color: Colors.red.shade100,
+                          borderRadius: BorderRadius.circular(100)),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: const Center(
+                          child: Text(
+                        "Cancelled",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CFC0060300",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          color: Colors.green.shade100,
+                          borderRadius: BorderRadius.circular(100)),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: const Center(
+                          child: Text(
+                        "Delivered",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 child: Row(
                   children: [
                     const Text(
@@ -96,286 +234,150 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    InkWell(
-                        onTap: () {
-                          _showOrderMenuDialog(context);
-                        },
-                        child: Image.asset(
-                          'assets/icons/menu.png',
-                          width: 28,
-                          height: 28,
-                          fit: BoxFit.fill,
-                        ))
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
                   ],
                 ),
               ),
             ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.red.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Cancelled",
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CFC0060300",
                       style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          color: Colors.red.shade100,
+                          borderRadius: BorderRadius.circular(100)),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: const Center(
+                          child: Text(
+                        "Cancelled",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.green.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Delivered",
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CFC0060300",
                       style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          color: Colors.green.shade100,
+                          borderRadius: BorderRadius.circular(100)),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: const Center(
+                          child: Text(
+                        "Delivered",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Confirmed",
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                child: Row(
+                  children: [
+                    const Text(
+                      "CFC0060300",
                       style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius: BorderRadius.circular(100)),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      child: const Center(
+                          child: Text(
+                        "Confirmed",
+                        style: TextStyle(fontSize: 16),
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/icons/menu.png',
+                      width: 28,
+                      height: 28,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.red.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Cancelled",
-                      style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
-              ),
-            ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.green.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Delivered",
-                      style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
-              ),
-            ),
-          ),
-          Card(
-            color: Colors.white,
-            elevation: 5,
-            margin: const EdgeInsets.only(right: 20.0, left: 20, top: 10),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0)),
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                children: [
-                  const Text(
-                    "CFC0060300",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
-                        borderRadius: BorderRadius.circular(100)),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    child: const Center(
-                        child: Text(
-                      "Confirmed",
-                      style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(
-                    'assets/icons/menu.png',
-                    width: 28,
-                    height: 28,
-                    fit: BoxFit.fill,
-                  )
-                ],
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
